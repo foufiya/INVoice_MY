@@ -48,7 +48,7 @@ Route::put('/posts/{post}', PostController::class .'@update')->name('posts.updat
 Route::delete('/posts/{post}', PostController::class .'@destroy')->name('posts.destroy');
 
 
-
+/*
 // returns the home page with all clients
 Route::get('/2', ClientController::class .'@index')->name('clients.index');
 // returns the form for adding a client
@@ -63,7 +63,7 @@ Route::get('/clients/{client}/edit', ClientController::class .'@edit')->name('cl
 Route::put('/clients/{client}', ClientController::class .'@update')->name('clients.update');
 // deletes a client
 Route::delete('/clients/{client}', ClientController::class .'@destroy')->name('clients.destroy');
-
+*/
 
 Route::get('/factures', [FactureController::class, 'index'])->name('factures.index');
 Route::get('/factures/create', [FactureController::class, 'create'])->name('factures.create');
@@ -99,6 +99,16 @@ Route::get('/entreprises/{entreprise}', [EntrepriseController::class, 'show'])->
 Route::get('/entreprises/{entreprise}/edit', [EntrepriseController::class, 'edit'])->name('entreprises.edit');
 Route::put('/entreprises/{entreprise}', [EntrepriseController::class, 'update'])->name('entreprises.update');
 Route::delete('/entreprises/{entreprise}', [EntrepriseController::class, 'destroy'])->name('entreprises.destroy');
+
+//*********clients*************
+Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
+Route::get('/clients/create', [ClientController::class, 'create'])->name('clients.create');
+Route::post('/clients', [ClientController::class, 'store'])->name('clients.store');
+Route::get('/clients/{client}', [ClientController::class, 'show'])->name('clients.show');
+Route::get('/clients/{client}/edit', [ClientController::class, 'edit'])->name('clients.edit');
+Route::put('/clients/{client}', [ClientController::class, 'update'])->name('clients.update');
+Route::delete('/clients/{client}', [ClientController::class, 'destroy'])->name('clients.destroy');
+
 
 Auth::routes();
 
