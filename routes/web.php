@@ -132,6 +132,22 @@ Route::delete('/fournisseurs/{fournisseur}', FournisseurController::class .'@des
 
 */
 /*
+// returns the home page with all clients
+Route::get('/2', ClientController::class .'@index')->name('clients.index');
+// returns the form for adding a client
+Route::get('/clients/create', ClientController::class . '@create')->name('clients.create');
+// adds a client to the database
+Route::post('/clients', [ClientController::class .'@store'])->name('clients.store');
+// returns a page that shows a full client
+Route::get('/clients/{client}', ClientController::class .'@show')->name('clients.show');
+// returns the form for editing a client
+Route::get('/clients/{client}/edit', ClientController::class .'@edit')->name('clients.edit');
+// updates a client
+Route::put('/clients/{client}', ClientController::class .'@update')->name('clients.update');
+// deletes a client
+Route::delete('/clients/{client}', ClientController::class .'@destroy')->name('clients.destroy');
+*/
+/*
 // returns the home page with all entreprises
 Route::get('/entreprises', [EntrepriseController::class .'index'])->name('entreprises.index');
 // returns the form for adding a entreprise

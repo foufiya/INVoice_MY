@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Client;
+
 class ClientController extends Controller
 {
     /**
@@ -14,8 +15,17 @@ class ClientController extends Controller
     public function index()
     {
         $clients = Client::all();
-
         return view('clients.index', compact('clients'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('clients.create');
     }
 
     /**
@@ -27,8 +37,9 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nomClient' => 'required|max:255',
-            'num_tel' => 'required',
+            'name' => 'required',
+            'telephone' => 'required',
+            'email' => 'required|email|unique:clients',
             'address' => 'required',
         ]);
 
@@ -38,78 +49,61 @@ class ClientController extends Controller
             ->with('success', 'Client created successfully.');
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Client  $client
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Client $client)
+    {
+        return view('clients.show', compact('client'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Client  $client
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Client $client)
+    {
+        return view('clients.edit', compact('client'));
+    }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Client $client)
     {
         $request->validate([
-            'nomClient' => 'required|max:255',
-            'num_tel' => 'required',
+            'name' => 'required',
+            'telephone' => 'required',
+            'email' => 'required|email|unique:clients,email,' . $client->id,
             'address' => 'required',
         ]);
 
-        $client = Client::find($id);
         $client->update($request->all());
 
         return redirect()->route('clients.index')
-            ->with('success', 'client updated successfully.');
+            ->with('success', 'Client updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function destroy(string $id)
+    public function destroy(Client $client)
     {
-        $client = Client::find($id);
         $client->delete();
 
         return redirect()->route('clients.index')
-            ->with('success', 'client deleted successfully');
-    }
-    // routes functions
-    /**
-     * Show the form for creating a new client.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('clients.create');
-    }
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $client = Client::find($id);
-
-        return view('clients.show', compact('client'));
-    }
-
-    /**
-     * Show the form for editing the specified client.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $client = Client::find($id);
-
-        return view('clients.edit', compact('client'));
+            ->with('success', 'Client deleted successfully.');
     }
 }
