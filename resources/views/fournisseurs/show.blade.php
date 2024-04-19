@@ -7,6 +7,7 @@
                 <h2>Fournisseur Details</h2>
                 <p><strong>Name:</strong> {{ $fournisseur->name }}</p>
                 <p><strong>Telephone:</strong> {{ $fournisseur->telephone }}</p>
+                <p><strong>Fax:</strong> {{ $fournisseur->fax }}</p>
                 <p><strong>Email:</strong> {{ $fournisseur->email }}</p>
                 <p><strong>Address:</strong> {{ $fournisseur->address }}</p>
                 <a href="{{ route('fournisseurs.edit', $fournisseur->id) }}" class="btn btn-primary">Edit</a>

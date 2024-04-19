@@ -74,13 +74,13 @@ Route::put('/factures/{facture}', [FactureController::class, 'update'])->name('f
 Route::delete('/factures/{facture}', [FactureController::class, 'destroy'])->name('factures.destroy');
 
 //*******FOURNISSEURS*******
-Route::get('/fournisseurs', [fournisseurController::class, 'index'])->name('fournisseurs.index');
-Route::get('/fournisseurs/create', [fournisseurController::class, 'create'])->name('fournisseurs.create');
-Route::post('/fournisseurs', [fournisseurController::class, 'store'])->name('fournisseurs.store');
-Route::get('/fournisseurs/{fournisseur}', [fournisseurController::class, 'show'])->name('fournisseurs.show');
-Route::get('/fournisseurs/{fournisseur}/edit', [fournisseurController::class, 'edit'])->name('fournisseurs.edit');
-Route::put('/fournisseurs/{fournisseur}', [fournisseurController::class, 'update'])->name('fournisseurs.update');
-Route::delete('/fournisseurs/{fournisseur}', [fournisseurController::class, 'destroy'])->name('fournisseurs.destroy');
+Route::get('/fournisseurs', [FournisseurController::class, 'index'])->name('fournisseurs.index');
+Route::get('/fournisseurs/create', [FournisseurController::class, 'create'])->name('fournisseurs.create');
+Route::post('/fournisseurs', [FournisseurController::class, 'store'])->name('fournisseurs.store');
+Route::get('/fournisseurs/{fournisseur}', [FournisseurController::class, 'show'])->name('fournisseurs.show');
+Route::get('/fournisseurs/{fournisseur}/edit', [FournisseurController::class, 'edit'])->name('fournisseurs.edit');
+Route::put('/fournisseurs/{fournisseur}', [FournisseurController::class, 'update'])->name('fournisseurs.update');
+Route::delete('/fournisseurs/{fournisseur}', [FournisseurController::class, 'destroy'])->name('fournisseurs.destroy');
 
 //this is of the depenses 
 Route::get('/depenses', [DepenseController::class, 'index'])->name('depenses.index');

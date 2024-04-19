@@ -16,6 +16,10 @@
                         <input type="text" name="telephone" class="form-control" required>
                     </div>
                     <div class="form-group">
+                        <label>Fax:</label>
+                        <input type="text" name="fax" class="form-control" required>
+                    </div>
+                    <div class="form-group">
                         <label>Email:</label>
                         <input type="email" name="email" class="form-control" required>
                     </div>

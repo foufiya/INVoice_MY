@@ -4,34 +4,36 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>Enterprises</h2>
-                <a href="{{ route('entreprises.create') }}" class="btn btn-primary">Create Enterprise</a>
+                <h2>Fournisseurs</h2>
+                <a href="{{ route('fournisseurs.create') }}" class="btn btn-primary">Create Fournisseur</a>
                 <table class="table mt-3">
                     <thead>
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
                             <th>Telephone</th>
+                            <th>Fax</th>
                             <th>Email</th>
                             <th>Address</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($entreprises as $entreprise)
+                        @foreach($fournisseurs as $fournisseur)
                             <tr>
-                                <td>{{ $entreprise->id }}</td>
-                                <td>{{ $entreprise->name }}</td>
-                                <td>{{ $entreprise->telephone }}</td>
-                                <td>{{ $entreprise->email }}</td>
-                                <td>{{ $entreprise->address }}</td>
+                                <td>{{ $fournisseur->id }}</td>
+                                <td>{{ $fournisseur->name }}</td>
+                                <td>{{ $fournisseur->telephone }}</td>
+                                <td>{{ $fournisseur->fax }}</td>
+                                <td>{{ $fournisseur->email }}</td>
+                                <td>{{ $fournisseur->address }}</td>
                                 <td>
-                                    <a href="{{ route('entreprises.show', $entreprise->id) }}" class="btn btn-info btn-sm">View</a>
-                                    <a href="{{ route('entreprises.edit', $entreprise->id) }}" class="btn btn-primary btn-sm">Edit</a>
-                                    <form action="{{ route('entreprises.destroy', $entreprise->id) }}" method="POST" style="display:inline;">
+                                    <a href="{{ route('fournisseurs.show', $fournisseur->id) }}" class="btn btn-info btn-sm">View</a>
+                                    <a href="{{ route('fournisseurs.edit', $fournisseur->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                                    <form action="{{ route('fournisseurs.destroy', $fournisseur->id) }}" method="POST" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this enterprise?')">Delete</button>
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this Fournisseur?')">Delete</button>
                                     </form>
                                 </td>
                             </tr>

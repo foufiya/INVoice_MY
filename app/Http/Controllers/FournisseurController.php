@@ -39,7 +39,7 @@ class FournisseurController extends Controller
         $request->validate([
             'name' => 'required',
             'telephone' => 'required',
-            'fax' => 'numeric|nullable',
+            'fax' => 'required',
             'email' => 'required|email|unique:fournisseurs',
             'address' => 'required',
         ]);
@@ -84,7 +84,7 @@ class FournisseurController extends Controller
         $request->validate([
             'name' => 'required',
             'telephone' => 'required',
-            'fax' => 'numeric|nullable',
+            'fax' => 'required',
             'email' => 'required|email|unique:fournisseurs,email,' . $fournisseur->id,
             'address' => 'required',
         ]);
