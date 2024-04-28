@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('fax');
             $table->string('email')->unique();
             $table->string('address');
+            $table->foreignId('Entre_fournisseur_id')->constrained('Entreprises')->onDelete('restrict')->onUpdate('cascade');
             $table->timestamps();
         });
     }

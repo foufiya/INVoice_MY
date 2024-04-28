@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('telephone');
             $table->string('email')->unique();
             $table->string('address');
+            $table->foreignId('Entreprise_client_id')->constrained('Entreprises')->onDelete('restrict')->onUpdate('cascade');
+
             $table->timestamps();
         });
     }

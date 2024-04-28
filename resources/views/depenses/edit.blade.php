@@ -21,8 +21,12 @@
                         <input type="text" name="montant" class="form-control" value="{{ $depense->montant }}" required>
                     </div>
                     <div class="form-group">
-                        <label>Expense State:</label>
-                        <input type="text" name="etat" class="form-control" value="{{ $depense->etat }}" required>
+                        <label>Depense State:</label>
+                        <select name="etat" class="form-select" required>
+                            <option value="payée">Payée</option>
+                            <option value="crédit">Crédit</option>
+                            <option value="en cours">En Cours</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Payment Date:</label>

@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('comptables', function (Blueprint $table) {
             $table->id();
+            $table->string('comptable_name');
+            $table->string('tel_comptable');
+            $table->string('email_comptable')->unique();
+           
+            $table->foreignId('Entreprise_id')->constrained()->onDelete('restrict')->onUpdate('cascade');
+
             $table->timestamps();
         });
     }

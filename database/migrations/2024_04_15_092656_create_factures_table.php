@@ -19,6 +19,7 @@ return new class extends Migration
             $table->decimal('vat', 5, 2); // Assuming VAT with 5 digits including 2 decimal places
             $table->string('description')->nullable();
             $table->string('invoice_number')->unique();
+            $table->foreignId('Entreprise_id')->constrained('Entreprises')->onDelete('restrict')->onUpdate('cascade');           
             $table->timestamps();
         });
 
